@@ -37,6 +37,10 @@ static NSString* const kMyBeaconRegionIdentifier = @"edu.self.myBeacon";
 #pragma mark - Public instance methods
 - (void)startRangingWithProximityUUID:(NSString *)uuidString;
 {
+	if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+		[self.locationManager requestWhenInUseAuthorization];
+	}
+
 	if ([CLLocationManager isRangingAvailable]) {
 		NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:uuidString];
 		self.rangingBeaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid
