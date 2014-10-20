@@ -72,6 +72,8 @@ static NSString* const kDefaultBeaconProximityUUID = @"B9407F30-F5F8-466E-AFF9-2
 
 -(void)viewWillAppear:(BOOL)animated
 {
+	[super viewWillAppear:animated];
+
 	NSLog(@"%s", __PRETTY_FUNCTION__);
 	[super viewWillDisappear:animated];
 	
